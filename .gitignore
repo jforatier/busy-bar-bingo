@@ -1,0 +1,32 @@
+node_modules
+dist
+*.log
+
+# Yarn 2+ install state, rebuilt on every install
+.yarn/install-state.gz
+
+# Vite reads these, and they tend to hold secrets
+.env
+.env.*
+
+# Editor and OS files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.sw?
+
+# Local only: maintainer notes (the repo holds the work, not the workflow)
+TODO.md
+*.local.md
+__pycache__/
+
+# Local only: design rounds on the bar and the promotion plan
+specs/21-promotion.md
+specs/ui-mockups/
+
+# Generated during the build: sounds (scripts/sfx.mjs, scripts/voice.mjs), bitmaps (scripts/pixels.mjs), nicknames (scripts/nicknames.mjs)
+src/sounds/
+src/art.gen.ts
+src/voice.gen.ts
+src/nicknames.gen.ts

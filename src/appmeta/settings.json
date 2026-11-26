@@ -1,0 +1,84 @@
+{
+  "format_version": 1,
+  "version": 1,
+  "fields": {
+    "mode": {
+      "type": "enum",
+      "label": "Draw",
+      "description": "Manual: Start spins the drum, Start again draws the ball. Automatic: a ball at a steady pace, Start pauses",
+      "default": "manual",
+      "options": [
+        {
+          "value": "manual",
+          "label": "Manual"
+        },
+        {
+          "value": "auto",
+          "label": "Automatic"
+        }
+      ]
+    },
+    "auto_pace": {
+      "type": "enum",
+      "label": "Automatic pace",
+      "description": "Time between two balls in automatic mode",
+      "default": "30",
+      "options": [
+        {
+          "value": "15",
+          "label": "15 s"
+        },
+        {
+          "value": "20",
+          "label": "20 s"
+        },
+        {
+          "value": "30",
+          "label": "30 s"
+        },
+        {
+          "value": "45",
+          "label": "45 s"
+        },
+        {
+          "value": "60",
+          "label": "60 s"
+        }
+      ]
+    },
+    "language": {
+      "type": "enum",
+      "label": "Language",
+      "description": "The caller's voice and the prize names",
+      "default": "en",
+      "options": [
+        {
+          "value": "en",
+          "label": "English"
+        },
+        {
+          "value": "fr",
+          "label": "Francais"
+        }
+      ]
+    },
+    "voice": {
+      "type": "boolean",
+      "label": "Voice",
+      "description": "A voice calls each ball and each prize",
+      "default": true
+    },
+    "nicknames": {
+      "type": "boolean",
+      "label": "Nicknames",
+      "description": "After the call, the ball's traditional nickname scrolls under its number (all 90 in English, the well-known ones in French)",
+      "default": false
+    },
+    "sounds": {
+      "type": "boolean",
+      "label": "Sounds",
+      "description": "Drum, ball and celebration sounds",
+      "default": true
+    }
+  }
+}
