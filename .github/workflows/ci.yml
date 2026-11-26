@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm test
+
+      # CHANGELOG.md format, and manifest version = package.json version.
+      - run: npm run changelog
+
+      # What ships on the bar: runtime dependencies only (dev tools never reach the package).
+      - run: npm audit --omit=dev --audit-level=high
+
+      # busy-cli build alone, as the BUSY Apps Catalog runs it: this proves a clean clone builds offline.
+      - run: npm run build
+
+      - run: npm run typecheck
